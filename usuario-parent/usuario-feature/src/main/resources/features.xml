@@ -12,6 +12,7 @@
   </feature>
 
   <feature name="usuario-api" version="${pom.version}">
+    <feature>src</feature>
     <bundle>mvn:${groupId}/usuario-api/${pom.version}</bundle>
   </feature>
 
