@@ -4,6 +4,9 @@ import com.google.gwt.inject.client.AbstractGinModule;
 import com.gwtplatform.dispatch.rest.client.RestApplicationPath;
 import com.gwtplatform.dispatch.rest.client.gin.RestDispatchAsyncModule;
 
+/**
+ * @author guilherme.pacheco
+ */
 public class RestDispatchModule extends AbstractGinModule {
 
   @Override

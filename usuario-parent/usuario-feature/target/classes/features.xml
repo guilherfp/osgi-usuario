@@ -12,6 +12,7 @@
   </feature>
 
   <feature name="usuario-api" version="0.0.1-SNAPSHOT">
+    <feature>src</feature>
     <bundle>mvn:br.com.pcsist.wta.usuario/usuario-api/0.0.1-SNAPSHOT</bundle>
   </feature>
 

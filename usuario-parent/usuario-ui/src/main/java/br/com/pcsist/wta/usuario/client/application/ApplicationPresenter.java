@@ -9,6 +9,9 @@ import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.presenter.slots.NestedSlot;
 import com.gwtplatform.mvp.client.proxy.Proxy;
 
+/**
+ * @author guilherme.pacheco
+ */
 public class ApplicationPresenter extends
     Presenter<ApplicationPresenter.MyView, ApplicationPresenter.MyProxy> {
 

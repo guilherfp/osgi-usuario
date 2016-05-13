@@ -8,6 +8,9 @@ import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewImpl;
 
+/**
+ * @author guilherme.pacheco
+ */
 class ApplicationView extends ViewImpl implements ApplicationPresenter.MyView {
   interface Binder extends UiBinder<Widget, ApplicationView> {}
 

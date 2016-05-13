@@ -11,6 +11,9 @@ import br.com.pcsist.wta.usuario.client.application.ApplicationModule;
 import br.com.pcsist.wta.usuario.client.dispatch.RestDispatchModule;
 import br.com.pcsist.wta.usuario.client.place.Tokens;
 
+/**
+ * @author guilherme.pacheco
+ */
 public class ClientModule extends AbstractPresenterModule {
 
   @Override
