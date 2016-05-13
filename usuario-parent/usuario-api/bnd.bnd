@@ -1,6 +1,8 @@
 Export-Package: br.com.pcsist.wta.usuario.api
+Meta-Persistence: \
+    META-INF/persistence.xml
 Import-Package: \
-	org.hibernate.proxy,\
-	javassist.util.proxy,\
-	*
+    org.hibernate.proxy, \
+    javassist.util.proxy, \
+    *
 Bundle-Activator: br.com.pcsist.wta.usuario.api.Activator

@@ -32,7 +32,6 @@
           <instructions>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
             <Bundle-Version>${project.version}</Bundle-Version>
-            <Meta-Persistence>META-INF/persistence.xml</Meta-Persistence>
           </instructions>
         </configuration>
       </plugin>

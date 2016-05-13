@@ -32,7 +32,9 @@ import br.com.pcsist.wta.usuario.api.UsuarioService;
 @Produces(MediaType.APPLICATION_JSON)
 public class UsuarioRest extends AbstractRest {
 
+  @Reference
   private UsuarioRepository usuarioRepository;
+  @Reference
   private UsuarioService usuarioService;
 
   @Context
@@ -67,16 +69,6 @@ public class UsuarioRest extends AbstractRest {
   @Path("{id}")
   public void deletar(@PathParam("id") long id) {
     usuarioService.deletar(id);
-  }
-
-  @Reference
-  public void setUsuarioRepository(UsuarioRepository usuarioRepository) {
-    this.usuarioRepository = usuarioRepository;
-  }
-
-  @Reference
-  public void setUsuarioService(UsuarioService usuarioService) {
-    this.usuarioService = usuarioService;
   }
 
 }

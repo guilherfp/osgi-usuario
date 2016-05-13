@@ -81,6 +81,12 @@
         <version>${osgi.version}</version>
         <scope>provided</scope>
       </dependency>
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>osgi.cmpn</artifactId>
+        <version>${osgi.version}</version>
+        <scope>provided</scope>
+      </dependency>
 
       <dependency>
         <groupId>org.osgi</groupId>
@@ -140,7 +146,11 @@
       <artifactId>org.osgi.core</artifactId>
       <scope>provided</scope>
     </dependency>
-
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi.cmpn</artifactId>
+      <scope>provided</scope>
+    </dependency>
     <dependency>
       <groupId>org.osgi</groupId>
       <artifactId>org.osgi.compendium</artifactId>
@@ -187,7 +197,7 @@
             <obrRepository>NONE</obrRepository>
             <instructions>
               <_dsannotations>*</_dsannotations>
-              <_include>osgi.bnd</_include>
+              <_include>-bnd.bnd</_include>
             </instructions>
           </configuration>
         </plugin>
