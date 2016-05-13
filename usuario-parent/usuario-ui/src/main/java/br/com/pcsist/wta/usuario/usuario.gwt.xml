@@ -3,17 +3,20 @@
         "https://raw.githubusercontent.com/gwtproject/gwt/2.6.1/distro-source/core/src/gwt-module.dtd">
 
 <module rename-to="usuario">
+
   <inherits name="com.google.gwt.user.User" />
   <inherits name="com.google.gwt.inject.Inject" />
-
-  <inherits name="com.google.gwt.user.theme.standard.Standard" />
-
-  <inherits name="com.gwtplatform.dispatch.Dispatch" />
+  <inherits name="com.gwtplatform.dispatch.rest.DispatchRest" />
   <inherits name="com.gwtplatform.mvp.MvpWithEntryPoint" />
+
+  <inherits name="org.gwtbootstrap3.GwtBootstrap3" />
+  <inherits name="org.gwtbootstrap3.extras.bootbox.Bootbox" />
+  <inherits name="org.gwtbootstrap3.extras.notify.Notify" />
 
   <source path="client" />
   <source path="shared" />
 
-  <set-configuration-property name="gin.ginjector.modules"
+  <extend-configuration-property name="gin.ginjector.modules"
     value="br.com.pcsist.wta.usuario.client.gin.ClientModule" />
+
 </module>
