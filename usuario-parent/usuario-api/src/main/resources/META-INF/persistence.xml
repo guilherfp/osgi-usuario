@@ -13,7 +13,7 @@
       osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=usuario)
     </non-jta-data-source>
 
-    <class>Usuario</class>
+    <class>br.com.pcsist.wta.usuario.api.Usuario</class>
 
     <properties>
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
