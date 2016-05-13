@@ -3,3 +3,4 @@ Import-Package: \
     javassist.util.proxy, \
     *
 Bundle-Activator: br.com.pcsist.wta.usuario.repository.Activator
+-dsannotations: *

@@ -2,11 +2,9 @@ package br.com.pcsist.wta.usuario.repository;
 
 import java.util.concurrent.Executors;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.inject.Singleton;
-
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,16 +14,15 @@ import br.com.pcsist.wta.usuario.api.UsuarioRepository;
 /**
  * @author guilherme.pacheco
  */
-@Named
-@Singleton
+@Component
 public class InitHelper {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(InitHelper.class);
 
-  @Inject
+  @Reference
   private UsuarioRepository usuarioRepository;
 
-  @PostConstruct
+  @Activate
   public void checkUsuario() {
     Executors.newSingleThreadExecutor().execute(() -> {
       try {

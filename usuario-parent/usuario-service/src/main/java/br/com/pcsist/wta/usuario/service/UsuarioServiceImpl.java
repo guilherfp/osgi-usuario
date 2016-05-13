@@ -1,8 +1,7 @@
 package br.com.pcsist.wta.usuario.service;
 
-import javax.inject.Inject;
-
-import org.ops4j.pax.cdi.api.OsgiServiceProvider;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,12 +13,12 @@ import br.com.pcsist.wta.usuario.api.UsuarioService;
 /**
  * @author guilherme.pacheco
  */
-@OsgiServiceProvider(classes = UsuarioService.class)
+@Component
 public class UsuarioServiceImpl implements UsuarioService {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(UsuarioServiceImpl.class);
 
-  @Inject
+  @Reference
   private UsuarioRepository usuarioRepository;
 
   @Override

@@ -2,3 +2,4 @@ Bundle-Activator: br.com.pcsist.wta.usuario.service.Activator
 Import-Package: \
     *
 Export-Package: br.com.pcsist.wta.usuario.service
+-dsannotations: *

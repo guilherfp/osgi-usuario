@@ -11,16 +11,122 @@
   <artifactId>usuario-ui</artifactId>
   <packaging>bundle</packaging>
 
+  <properties>
+    <!-- client -->
+    <java.version>1.7</java.version>
+    <gwt.version>2.7.0</gwt.version>
+    <gwtp.version>1.4</gwtp.version>
+    <gin.version>2.1.2</gin.version>
+
+    <!-- maven -->
+    <gwt-maven-plugin.version>2.7.0</gwt-maven-plugin.version>
+    <maven-surefire-plugin.version>2.17</maven-surefire-plugin.version>
+    <maven-compiler-plugin.version>3.2</maven-compiler-plugin.version>
+    <maven-war-plugin.version>2.5</maven-war-plugin.version>
+    <maven-resources-plugin.version>2.5</maven-resources-plugin.version>
+    <maven-processor-plugin.version>2.0.5</maven-processor-plugin.version>
+    <maven-build-helper-plugin.version>1.7</maven-build-helper-plugin.version>
+
+    <target.jdk>1.7</target.jdk>
+    <gwt.war>${basedir}/src/main/resources</gwt.war>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>br.com.pcsist.wta.usuario</groupId>
       <artifactId>usuario-api</artifactId>
       <type>bundle</type>
     </dependency>
+
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-user</artifactId>
+      <version>${gwt.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.gwtplatform</groupId>
+      <artifactId>gwtp-mvp-client</artifactId>
+      <version>${gwtp.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.gwtplatform</groupId>
+      <artifactId>gwtp-dispatch-rpc-client</artifactId>
+      <version>${gwtp.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt.inject</groupId>
+      <artifactId>gin</artifactId>
+      <version>${gin.version}</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>gwt-maven-plugin</artifactId>
+        <version>${gwt-maven-plugin.version}</version>
+        <configuration>
+          <copyWebapp>true</copyWebapp>
+          <hostedWebapp>${gwt.war}</hostedWebapp>
+          <runTarget>index.html</runTarget>
+          <modules>
+            <module>br.com.pcsist.wta.usuario.usuario</module>
+          </modules>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>test</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <configuration>
+          <filesets>
+            <fileset>
+              <directory>${gwt.war}</directory>
+              <includes>
+                <include>**usuario**</include>
+              </includes>
+            </fileset>
+          </filesets>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>gwt-maven-plugin</artifactId>
+        <groupId>org.codehaus.mojo</groupId>
+        <version>${gwt.version}</version>
+        <configuration>
+          <sourceLevel>auto</sourceLevel>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <phase>prepare-package</phase>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>

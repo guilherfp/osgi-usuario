@@ -2,8 +2,8 @@ package br.com.pcsist.wta.rest;
 
 import java.net.URI;
 import java.util.Collection;
+import java.util.Collections;
 
-import javax.inject.Named;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -17,6 +17,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
+import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
 import br.com.pcsist.wta.usuario.api.CadastroUsuario;
@@ -27,7 +28,8 @@ import br.com.pcsist.wta.usuario.api.UsuarioService;
 /**
  * @author guilherme.pacheco
  */
-@Named
+@Component(service = UsuarioRest.class, property = { "service.exported.interfaces=*",
+    "service.exported.configs=org.apache.cxf.rs", "org.apache.cxf.rs.address=/usuarios" })
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class UsuarioRest extends AbstractRest {
@@ -56,7 +58,12 @@ public class UsuarioRest extends AbstractRest {
 
   @GET
   public Collection<Usuario> todos() {
-    return usuarioRepository.todos();
+    Usuario usuario = new Usuario();
+    usuario.setNome("Guilherme Pacheco");
+    usuario.setEmail("guilherme.pacheco@pcinformatica.com.br");
+    usuario.setUsername("guilherme.pacheco");
+    return Collections.singletonList(usuario);
+    // return usuarioRepository.todos();
   }
 
   @PUT

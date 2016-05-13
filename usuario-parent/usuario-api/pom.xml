@@ -12,14 +12,13 @@
   <artifactId>usuario-api</artifactId>
   <packaging>bundle</packaging>
 
-  <name>usuario-api Bundle</name>
+  <name>usuario-api</name>
   <description>usuario-api OSGi bundle project.</description>
 
   <dependencies>
     <dependency>
-      <groupId>org.osgi</groupId>
-      <artifactId>org.osgi.core</artifactId>
-      <scope>provided</scope>
+      <groupId>org.hibernate.javax.persistence</groupId>
+      <artifactId>hibernate-jpa-2.1-api</artifactId>
     </dependency>
   </dependencies>
 

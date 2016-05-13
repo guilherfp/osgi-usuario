@@ -19,9 +19,14 @@
   </modules>
 
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
+
     <scanPath>br.com.pcsist.wta.usuario</scanPath>
     <maven-bundle-plugin.version>3.0.1</maven-bundle-plugin.version>
     <osgi.version>6.0.0</osgi.version>
+    <slf4j.version>1.7.21</slf4j.version>
     <cxf.version>3.1.5</cxf.version>
   </properties>
 
@@ -41,38 +46,31 @@
       </dependency>
 
       <dependency>
-        <groupId>javax.enterprise</groupId>
-        <artifactId>cdi-api</artifactId>
-        <version>1.2</version>
-        <optional>true</optional>
-      </dependency>
-      <dependency>
-        <groupId>org.ops4j.pax.cdi</groupId>
-        <artifactId>pax-cdi-api</artifactId>
-        <version>0.8.0</version>
-        <optional>true</optional>
-      </dependency>
-      <dependency>
-        <groupId>javax.inject</groupId>
-        <artifactId>javax.inject</artifactId>
-        <version>1</version>
-        <optional>true</optional>
-      </dependency>
-      <dependency>
-        <groupId>javax.transaction</groupId>
-        <artifactId>javax.transaction-api</artifactId>
-        <version>1.2</version>
-      </dependency>
-      <dependency>
         <groupId>org.hibernate.javax.persistence</groupId>
         <artifactId>hibernate-jpa-2.1-api</artifactId>
         <version>1.0.0.Final</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.aries.jpa</groupId>
+        <artifactId>org.apache.aries.jpa.api</artifactId>
+        <version>2.2.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.aries.jpa</groupId>
+        <artifactId>org.apache.aries.jpa.support</artifactId>
+        <version>2.2.0</version>
+        <exclusions>
+          <exclusion>
+            <artifactId>org.osgi.compendium</artifactId>
+            <groupId>org.osgi</groupId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
-        <version>1.7.7</version>
+        <version>${slf4j.version}</version>
       </dependency>
 
       <dependency>
@@ -89,16 +87,9 @@
       </dependency>
 
       <dependency>
-        <groupId>org.osgi</groupId>
-        <artifactId>org.osgi.compendium</artifactId>
-        <version>5.0.0</version>
-        <scope>provided</scope>
-      </dependency>
-
-      <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
-        <version>4.11</version>
+        <version>4.12</version>
         <scope>test</scope>
       </dependency>
       <dependency>
@@ -110,32 +101,13 @@
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>log4j-over-slf4j</artifactId>
-        <version>1.7.21</version>
+        <version>${slf4j.version}</version>
         <scope>test</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
 
   <dependencies>
-    <dependency>
-      <groupId>org.ops4j.pax.cdi</groupId>
-      <artifactId>pax-cdi-api</artifactId>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>javax.inject</groupId>
-      <artifactId>javax.inject</artifactId>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>javax.transaction</groupId>
-      <artifactId>javax.transaction-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.hibernate.javax.persistence</groupId>
-      <artifactId>hibernate-jpa-2.1-api</artifactId>
-    </dependency>
-
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
@@ -149,11 +121,6 @@
     <dependency>
       <groupId>org.osgi</groupId>
       <artifactId>osgi.cmpn</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.osgi</groupId>
-      <artifactId>org.osgi.compendium</artifactId>
       <scope>provided</scope>
     </dependency>
 
@@ -196,7 +163,6 @@
           <configuration>
             <obrRepository>NONE</obrRepository>
             <instructions>
-              <_dsannotations>*</_dsannotations>
               <_include>-bnd.bnd</_include>
             </instructions>
           </configuration>
@@ -210,6 +176,7 @@
               <goals>
                 <goal>blueprint-generate</goal>
               </goals>
+              <phase>process-classes</phase>
             </execution>
           </executions>
           <configuration>
@@ -225,8 +192,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <inherited>true</inherited>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
         </configuration>
       </plugin>
     </plugins>
