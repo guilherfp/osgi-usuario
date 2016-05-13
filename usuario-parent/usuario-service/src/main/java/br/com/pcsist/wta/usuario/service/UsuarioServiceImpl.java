@@ -33,7 +33,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
   @Override
   public void atualizar(long id, CadastroUsuario cadastro) {
-    System.out.println("Atualizando usuário" + cadastro);
+    System.out.println("Atualizando usuário " + cadastro);
   }
 
   private Usuario novoUsuario(CadastroUsuario cadastro) {
@@ -48,7 +48,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
   @Override
   public void deletar(long id) {
-    System.out.println("Deletando usuário" + id);
+    System.out.println("Deletando usuário " + id);
   }
 
 }
