@@ -3,7 +3,6 @@ package br.com.pcsist.wta.rest;
 import java.net.URI;
 import java.util.Collection;
 
-import javax.inject.Inject;
 import javax.inject.Named;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -18,7 +17,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-import org.ops4j.pax.cdi.api.OsgiService;
+import org.osgi.service.component.annotations.Reference;
 
 import br.com.pcsist.wta.usuario.api.CadastroUsuario;
 import br.com.pcsist.wta.usuario.api.Usuario;
@@ -33,15 +32,11 @@ import br.com.pcsist.wta.usuario.api.UsuarioService;
 @Produces(MediaType.APPLICATION_JSON)
 public class UsuarioRest extends AbstractRest {
 
-  @OsgiService
-  @Inject
-  UsuarioRepository usuarioRepository;
-  @OsgiService
-  @Inject
-  UsuarioService usuarioService;
+  private UsuarioRepository usuarioRepository;
+  private UsuarioService usuarioService;
 
   @Context
-  UriInfo uri;
+  private UriInfo uri;
 
   @GET
   @Path("{id}")
@@ -72,6 +67,16 @@ public class UsuarioRest extends AbstractRest {
   @Path("{id}")
   public void deletar(@PathParam("id") long id) {
     usuarioService.deletar(id);
+  }
+
+  @Reference
+  public void setUsuarioRepository(UsuarioRepository usuarioRepository) {
+    this.usuarioRepository = usuarioRepository;
+  }
+
+  @Reference
+  public void setUsuarioService(UsuarioService usuarioService) {
+    this.usuarioService = usuarioService;
   }
 
 }
