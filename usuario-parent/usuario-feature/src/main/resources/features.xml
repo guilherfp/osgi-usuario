@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="usuario-${pom.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.3.0 http://karaf.apache.org/xmlns/features/v1.3.0">
+
+  <repository>mvn:org.apache.cxf.karaf/apache-cxf/3.1.6/xml/features</repository>
+  <repository>mvn:org.ops4j.pax.jdbc/pax-jdbc-features/0.8.0/xml/features</repository>
+
+  <feature name="usuario" version="${pom.version}">
+    <feature>usuario-command</feature>
+    <feature>usuario-ui</feature>
+  </feature>
+
+  <feature name="usuario-api" version="${pom.version}">
+    <bundle>mvn:${groupId}/usuario-api/${pom.version}</bundle>
+  </feature>
+
+  <feature name="usuario-repository" version="${pom.version}">
+    <feature>pax-jdbc-h2</feature>
+    <feature>pax-jdbc-config</feature>
+    <feature>pax-jdbc-pool-dbcp2</feature>
+    <feature>jndi</feature>
+    <feature>transaction</feature>
+    <feature version="[2.2, 3)">jpa</feature>
+    <feature version="[4.3, 5)">hibernate</feature>
+    <feature>usuario-api</feature>
+    <bundle>mvn:${groupId}/usuario-repository/${pom.version}</bundle>
+  </feature>
+
+  <feature name="usuario-service" version="${pom.version}">
+    <feature>cxf-features-logging</feature>
+    <feature>cxf-jaxrs</feature>
+    <feature>cxf-commands</feature>
+    <feature>usuario-repository</feature>
+    <bundle>mvn:${groupId}/usuario-service/${pom.version}</bundle>
+  </feature>
+
+  <feature name="usuario-command" version="${pom.version}">
+    <feature>usuario-service</feature>
+    <bundle>mvn:${groupId}/usuario-command/${pom.version}</bundle>
+  </feature>
+
+  <feature name="usuario-ui" version="${pom.version}">
+    <feature>war</feature>
+    <feature>usuairo-service</feature>
+    <bundle>mvn:${groupId}/usuario-ui/${pom.version}</bundle>
+  </feature>
+
+</features>
