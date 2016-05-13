@@ -5,13 +5,12 @@ import javax.inject.Inject;
 import org.gwtbootstrap3.extras.notify.client.constants.NotifyType;
 import org.gwtbootstrap3.extras.notify.client.ui.Notify;
 
-import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 
-import br.com.pcsist.wta.usuario.shared.usuario.Usuario_;
+import br.com.pcsist.wta.usuario.client.components.TableUsuarios;
 import br.com.pcsist.wta.usuario.shared.usuario.Usuarios;
 
 /**
@@ -22,6 +21,9 @@ class HomePageView extends ViewWithUiHandlers<HomePageUiHandlers>
 
   interface Binder extends UiBinder<Widget, HomePageView> {}
 
+  @UiField
+  TableUsuarios tableUsuarios;
+
   @Inject
   HomePageView(Binder uiBinder) {
     initWidget(uiBinder.createAndBindUi(this));
@@ -29,19 +31,13 @@ class HomePageView extends ViewWithUiHandlers<HomePageUiHandlers>
 
   @Override
   public void showUsuario(Usuarios usuarios) {
-    for (Usuario_ usuario : usuarios.usuario) {
-      Notify.notify(usuario.toString());
-    }
+    tableUsuarios.setRowCount(usuarios.usuario.size());
+    tableUsuarios.setRowData(usuarios.usuario);
   }
 
   @Override
   public void showErro(String message) {
     Notify.notify(message, NotifyType.DANGER);
-  }
-
-  @UiHandler("aCadastrarUsuario")
-  void cadastrarUsuario(ClickEvent event) {
-    getUiHandlers().cadastrarUsuario();
   }
 
 }

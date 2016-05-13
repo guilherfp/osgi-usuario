@@ -10,9 +10,7 @@ import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
-import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
-import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
 
 import br.com.pcsist.wta.usuario.client.application.ApplicationPresenter;
 import br.com.pcsist.wta.usuario.client.place.Tokens;
@@ -33,7 +31,6 @@ public class HomePagePresenter extends
 
   private final RestDispatch dispatcher;
   private final UsuarioRest usuarioRest;
-  private final PlaceManager placeManager;
 
   @ProxyStandard
   @NameToken(Tokens.HOME)
@@ -41,12 +38,11 @@ public class HomePagePresenter extends
 
   @Inject
   HomePagePresenter(EventBus eventBus, MyView view, MyProxy proxy, RestDispatch dispatcher,
-      UsuarioRest usuarioRest, PlaceManager placeManager) {
+      UsuarioRest usuarioRest) {
     super(eventBus, view, proxy, ApplicationPresenter.SLOT_MAIN);
     getView().setUiHandlers(this);
     this.usuarioRest = usuarioRest;
     this.dispatcher = dispatcher;
-    this.placeManager = placeManager;
   }
 
   @Override
@@ -63,11 +59,6 @@ public class HomePagePresenter extends
         getView().showUsuario(result);
       }
     });
-  }
-
-  @Override
-  public void cadastrarUsuario() {
-    placeManager.revealPlace(new PlaceRequest.Builder().nameToken(Tokens.CADASTRO).build());
   }
 
 }
