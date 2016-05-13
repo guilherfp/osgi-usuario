@@ -15,3 +15,6 @@ hs_err_pid*
 .settings
 .externalToolBuilders
 gwt-unitCache
+/usuario-parent/usuario-ui/src/main/resources/WEB-INF
+usuario
+WEB-INF
