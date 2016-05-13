@@ -2,11 +2,11 @@ package br.com.pcsist.wta.usuario.repository;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaQuery;
 
+import org.apache.aries.jpa.template.JpaTemplate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
 import br.com.pcsist.wta.usuario.api.Usuario;
 import br.com.pcsist.wta.usuario.api.UsuarioRepository;
@@ -17,28 +17,33 @@ import br.com.pcsist.wta.usuario.api.UsuarioRepository;
 @Component
 public class UsuarioRepositoryImpl implements UsuarioRepository {
 
-  @PersistenceContext(unitName = "usuarios")
-  EntityManager em;
+  @Reference(target = "(osgi.unit.name=usuarios)")
+  JpaTemplate jpa;
 
   @Override
   public Usuario comId(long id) {
-    return em.find(Usuario.class, id);
+    return jpa.txExpr(em -> em.find(Usuario.class, id));
   }
 
   @Override
   public List<Usuario> todos() {
-    CriteriaQuery<Usuario> query = em.getCriteriaBuilder().createQuery(Usuario.class);
-    return em.createQuery(query.select(query.from(Usuario.class))).getResultList();
+    return jpa.txExpr(em -> {
+      CriteriaQuery<Usuario> query = em.getCriteriaBuilder().createQuery(Usuario.class);
+      return em.createQuery(query.select(query.from(Usuario.class))).getResultList();
+    });
   }
 
   @Override
   public void salvar(Usuario usuairo) {
-    em.merge(usuairo);
+    jpa.tx(em -> {
+      em.persist(usuairo);
+      em.flush();
+    });
   }
 
   @Override
   public void remover(Usuario usuairo) {
-    em.remove(usuairo);
+    jpa.tx(em -> em.remove(usuairo));
   }
 
 }

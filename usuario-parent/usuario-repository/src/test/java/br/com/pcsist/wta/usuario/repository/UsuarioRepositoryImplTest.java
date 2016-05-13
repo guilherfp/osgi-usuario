@@ -22,12 +22,15 @@ public class UsuarioRepositoryImplTest {
   private UsuarioRepositoryImpl usuarioRepository;
   private EntityManager em;
 
+  /**
+   * @throws Exception
+   */
   @Before
   public void setUp() throws Exception {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("usuarios", getProperties());
     usuarioRepository = new UsuarioRepositoryImpl();
     em = emf.createEntityManager();
-    usuarioRepository.em = em;
+    usuarioRepository.jpa = new SimpleJpaTemplate(em);
   }
 
   @Test

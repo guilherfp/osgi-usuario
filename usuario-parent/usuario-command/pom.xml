@@ -19,7 +19,7 @@
   <dependencies>
     <dependency>
       <groupId>br.com.pcsist.wta.usuario</groupId>
-      <artifactId>usuario-repository</artifactId>
+      <artifactId>usuario-api</artifactId>
       <type>bundle</type>
     </dependency>
 

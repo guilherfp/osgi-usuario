@@ -1,8 +1,6 @@
 package br.com.pcsist.wta.rest;
 
-import java.net.URI;
 import java.util.Collection;
-import java.util.Collections;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -32,15 +30,16 @@ import br.com.pcsist.wta.usuario.api.UsuarioService;
     "service.exported.configs=org.apache.cxf.rs", "org.apache.cxf.rs.address=/usuarios" })
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@Path("")
 public class UsuarioRest extends AbstractRest {
 
   @Reference
-  private UsuarioRepository usuarioRepository;
+  UsuarioRepository usuarioRepository;
   @Reference
-  private UsuarioService usuarioService;
+  UsuarioService usuarioService;
 
   @Context
-  private UriInfo uri;
+  UriInfo uri;
 
   @GET
   @Path("{id}")
@@ -52,18 +51,12 @@ public class UsuarioRest extends AbstractRest {
   @POST
   public Response cadastrar(CadastroUsuario cadastro) {
     Usuario usuario = usuarioService.cadastrar(cadastro);
-    URI taskURI = uri.getRequestUriBuilder().path(Usuario.class, "usuario").build(usuario.getId());
-    return Response.created(taskURI).build();
+    return response(usuario);
   }
 
   @GET
   public Collection<Usuario> todos() {
-    Usuario usuario = new Usuario();
-    usuario.setNome("Guilherme Pacheco");
-    usuario.setEmail("guilherme.pacheco@pcinformatica.com.br");
-    usuario.setUsername("guilherme.pacheco");
-    return Collections.singletonList(usuario);
-    // return usuarioRepository.todos();
+    return usuarioRepository.todos();
   }
 
   @PUT

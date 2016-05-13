@@ -5,13 +5,7 @@
   <persistence-unit name="usuarios" transaction-type="JTA">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-    <jta-data-source>
-      osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=usuario)
-    </jta-data-source>
-
-    <non-jta-data-source>
-      osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=usuario)
-    </non-jta-data-source>
+    <jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=usuario)</jta-data-source>
 
     <class>br.com.pcsist.wta.usuario.api.Usuario</class>
 

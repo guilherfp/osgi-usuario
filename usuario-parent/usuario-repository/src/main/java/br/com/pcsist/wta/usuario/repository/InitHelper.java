@@ -20,7 +20,7 @@ public class InitHelper {
   private static final Logger LOGGER = LoggerFactory.getLogger(InitHelper.class);
 
   @Reference
-  private UsuarioRepository usuarioRepository;
+  UsuarioRepository usuarioRepository;
 
   @Activate
   public void checkUsuario() {
