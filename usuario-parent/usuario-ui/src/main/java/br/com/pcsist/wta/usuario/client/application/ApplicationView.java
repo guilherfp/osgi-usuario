@@ -17,12 +17,12 @@ class ApplicationView extends ViewWithUiHandlers<ApplicationUiHandlers>
   interface Binder extends UiBinder<Widget, ApplicationView> {}
 
   @UiField
-  SimplePanel main;
+  SimplePanel contentContainer;
 
   @Inject
   ApplicationView(Binder uiBinder) {
     initWidget(uiBinder.createAndBindUi(this));
-    bindSlot(ApplicationPresenter.SLOT_MAIN, main);
+    bindSlot(ApplicationPresenter.SLOT_MAIN, contentContainer);
   }
 
 }

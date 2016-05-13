@@ -32,7 +32,7 @@ public class ListUsuarios implements Action {
 
   @Override
   public Object execute() throws Exception {
-    System.out.println("Listando usuários");
+    System.out.println("Listando usuarios");
     try {
       for (Usuario usuario : usuarioRepository.todos()) {
         System.out.println(usuario.toString());

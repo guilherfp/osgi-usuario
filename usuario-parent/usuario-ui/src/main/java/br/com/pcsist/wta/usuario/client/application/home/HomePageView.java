@@ -8,9 +8,11 @@ import org.gwtbootstrap3.extras.notify.client.ui.Notify;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.view.client.ListDataProvider;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 
 import br.com.pcsist.wta.usuario.client.components.TableUsuarios;
+import br.com.pcsist.wta.usuario.shared.usuario.Usuario_;
 import br.com.pcsist.wta.usuario.shared.usuario.Usuarios;
 
 /**
@@ -24,15 +26,20 @@ class HomePageView extends ViewWithUiHandlers<HomePageUiHandlers>
   @UiField
   TableUsuarios tableUsuarios;
 
+  private ListDataProvider<Usuario_> dataProvider;
+
   @Inject
   HomePageView(Binder uiBinder) {
     initWidget(uiBinder.createAndBindUi(this));
+    dataProvider = new ListDataProvider<>();
+    dataProvider.addDataDisplay(tableUsuarios);
   }
 
   @Override
   public void showUsuario(Usuarios usuarios) {
-    tableUsuarios.setRowCount(usuarios.usuario.size());
-    tableUsuarios.setRowData(usuarios.usuario);
+    dataProvider.getList().clear();
+    dataProvider.getList().addAll(usuarios.usuario);
+    dataProvider.flush();
   }
 
   @Override
