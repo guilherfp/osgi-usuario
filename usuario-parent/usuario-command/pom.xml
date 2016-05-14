@@ -9,7 +9,6 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <groupId>br.com.pcsist.wta</groupId>
   <artifactId>usuario-command</artifactId>
   <packaging>bundle</packaging>
 
@@ -52,7 +51,7 @@
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
             <Export-Package>br.com.pcsist.wta.usuario.command*;version=${project.version};</Export-Package>
             <Karaf-Commands>br.com.pcsist.wta.usuario.command*</Karaf-Commands>
-             <Import-Package>
+            <Import-Package>
               *
             </Import-Package>
           </instructions>

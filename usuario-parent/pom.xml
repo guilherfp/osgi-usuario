@@ -14,8 +14,8 @@
     <module>usuario-service</module>
     <module>usuario-command</module>
     <module>usuario-rest</module>
-    <module>usuario-feature</module>
     <module>usuario-ui</module>
+    <module>usuario-features</module>
   </modules>
 
   <properties>

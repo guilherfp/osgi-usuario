@@ -9,7 +9,7 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>usuario-feature</artifactId>
+  <artifactId>usuario-features</artifactId>
   <packaging>pom</packaging>
 
   <name>usuario-feature</name>
