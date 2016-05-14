@@ -2,7 +2,6 @@ package br.com.pcsist.wta.usuario.api;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -14,7 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Usuario {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue
   private long id;
   private String nome;
   private String username;

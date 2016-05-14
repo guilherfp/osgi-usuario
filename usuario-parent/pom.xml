@@ -27,7 +27,7 @@
     <maven-bundle-plugin.version>3.0.1</maven-bundle-plugin.version>
     <osgi.version>6.0.0</osgi.version>
     <slf4j.version>1.7.21</slf4j.version>
-    <cxf.version>3.1.5</cxf.version>
+    <cxf.version>3.1.6</cxf.version>
   </properties>
 
   <dependencies>
@@ -36,6 +36,11 @@
       <artifactId>slf4j-api</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>org.osgi.core</artifactId>
+      <scope>provided</scope>
+    </dependency>
     <dependency>
       <groupId>org.osgi</groupId>
       <artifactId>osgi.cmpn</artifactId>

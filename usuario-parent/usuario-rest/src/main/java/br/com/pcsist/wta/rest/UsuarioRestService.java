@@ -26,12 +26,13 @@ import br.com.pcsist.wta.usuario.api.UsuarioService;
 /**
  * @author guilherme.pacheco
  */
-@Component(service = UsuarioRest.class, property = { "service.exported.interfaces=*",
-    "service.exported.configs=org.apache.cxf.rs", "org.apache.cxf.rs.address=/usuarios" })
+@Component(property = { "service.exported.interfaces=*",
+    "service.exported.configs=org.apache.cxf.rs",
+    "org.apache.cxf.rs.address=/usuarios" })
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Path("")
-public class UsuarioRest extends AbstractRest {
+public class UsuarioRestService extends AbstractRest {
 
   @Reference
   UsuarioRepository usuarioRepository;

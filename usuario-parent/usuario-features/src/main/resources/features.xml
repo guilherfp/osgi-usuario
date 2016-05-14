@@ -4,10 +4,13 @@
   xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.3.0 http://karaf.apache.org/xmlns/features/v1.3.0">
 
   <repository>mvn:org.hibernate/hibernate-osgi/5.1.0.Final/xml/karaf</repository>
+  <repository>mvn:org.apache.cxf.karaf/apache-cxf/3.1.6/xml/features</repository>
   <repository>mvn:org.ops4j.pax.jdbc/pax-jdbc-features/0.8.0/xml/features</repository>
   <repository>mvn:org.apache.cxf.dosgi/cxf-dosgi/1.7.0/xml/features</repository>
 
   <feature name="usuario" version="${pom.version}">
+    <feature>scr</feature>
+    <feature>usuario-rest</feature>
     <feature>usuario-command</feature>
     <feature>usuario-ui</feature>
   </feature>
@@ -15,13 +18,13 @@
   <feature name="usuario-api" version="${pom.version}">
     <feature>scr</feature>
     <feature>jndi</feature>
-    <feature version="[2.3, 3)">jpa</feature>
-    <feature version="[4.3, 5)">hibernate</feature>
+    <feature version="[2.3,3)">jpa</feature>
+    <feature version="[4.3,5)">hibernate</feature>
     <bundle>mvn:${groupId}/usuario-api/${pom.version}</bundle>
   </feature>
 
   <feature name="usuario-repository" version="${pom.version}">
-    <feature>scr</feature>
+    <feature>usuario-api</feature>
     <feature>transaction</feature>
     <feature>jpa</feature>
     <feature version="[5,6)">hibernate-orm</feature>
@@ -33,20 +36,25 @@
 
   <feature name="usuario-service" version="${pom.version}">
     <feature>scr</feature>
-    <feature>cxf-dosgi-discovery-distributed</feature>
     <feature>usuario-repository</feature>
     <bundle>mvn:${groupId}/usuario-service/${pom.version}</bundle>
   </feature>
 
   <feature name="usuario-command" version="${pom.version}">
+    <feature>scr</feature>
     <feature>usuario-service</feature>
     <bundle>mvn:${groupId}/usuario-command/${pom.version}</bundle>
+  </feature>
+
+  <feature name="usuario-rest" version="${pom.version}">
+    <feature>cxf-dosgi-discovery-distributed</feature>
+    <feature>usuario-service</feature>
+    <bundle>mvn:${groupId}/usuario-rest/${pom.version}</bundle>
   </feature>
 
   <feature name="usuario-ui" version="${pom.version}">
     <feature>scr</feature>
     <feature>war</feature>
-    <feature>usuario-service</feature>
     <bundle>mvn:${groupId}/usuario-ui/${pom.version}</bundle>
   </feature>
 

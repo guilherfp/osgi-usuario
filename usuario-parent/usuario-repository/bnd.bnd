@@ -3,4 +3,5 @@ Import-Package: \
     javassist.util.proxy, \
     *
 Bundle-Activator: br.com.pcsist.wta.usuario.repository.Activator
+Provide-Capability: osgi.service; objectClass=org.apache.aries.jpa.template.JpaTemplate
 -dsannotations: *
