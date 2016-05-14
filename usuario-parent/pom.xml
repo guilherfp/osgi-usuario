@@ -171,6 +171,11 @@
           <groupId>org.apache.aries.blueprint</groupId>
           <artifactId>blueprint-maven-plugin</artifactId>
           <version>1.4.0</version>
+          <configuration>
+            <scanPaths>
+              <scanPath>${scanPath}</scanPath>
+            </scanPaths>
+          </configuration>
           <executions>
             <execution>
               <goals>
@@ -179,11 +184,6 @@
               <phase>process-classes</phase>
             </execution>
           </executions>
-          <configuration>
-            <scanPaths>
-              <scanPath>${scanPath}</scanPath>
-            </scanPaths>
-          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
