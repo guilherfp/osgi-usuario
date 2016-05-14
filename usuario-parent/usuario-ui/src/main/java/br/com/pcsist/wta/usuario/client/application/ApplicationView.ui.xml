@@ -18,28 +18,16 @@
       <b:Navbar position="FIXED_TOP">
         <b:Container>
           <b:NavbarHeader>
-            <b:NavbarBrand>Brand</b:NavbarBrand>
+            <b:NavbarBrand>WTA OSGi</b:NavbarBrand>
             <b:NavbarCollapseButton dataTarget="#navbar-collapse" />
           </b:NavbarHeader>
           <b:NavbarCollapse b:id="navbar-collapse" ui:field="navbarCollapse">
             <b:NavbarNav>
-              <b:AnchorListItem active="true" targetHistoryToken="{tokens.getHome}">Home</b:AnchorListItem>
-              <b:AnchorListItem>Vendas</b:AnchorListItem>
-              <b:AnchorListItem>Compras</b:AnchorListItem>
-
               <b:ListDropDown>
                 <b:AnchorButton dataToggle="DROPDOWN">Usuários</b:AnchorButton>
                 <b:DropDownMenu>
+                  <b:AnchorListItem targetHistoryToken="{tokens.getHome}">Listar</b:AnchorListItem>
                   <b:AnchorListItem targetHistoryToken="{tokens.getCadastro}">Cadastrar</b:AnchorListItem>
-                  <b:AnchorListItem>Movimentações</b:AnchorListItem>
-                </b:DropDownMenu>
-              </b:ListDropDown>
-              <b:ListDropDown>
-                <b:AnchorButton dataToggle="DROPDOWN">Estoque</b:AnchorButton>
-                <b:DropDownMenu>
-                  <b:AnchorListItem>Depósitos</b:AnchorListItem>
-                  <b:AnchorListItem>Movimentações</b:AnchorListItem>
-                  <b:AnchorListItem>Produtos</b:AnchorListItem>
                 </b:DropDownMenu>
               </b:ListDropDown>
             </b:NavbarNav>

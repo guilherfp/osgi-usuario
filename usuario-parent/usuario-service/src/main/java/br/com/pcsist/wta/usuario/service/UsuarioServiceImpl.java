@@ -41,13 +41,17 @@ public class UsuarioServiceImpl implements UsuarioService {
     usuario.setEmail(cadastro.getEmail());
     usuario.setNome(cadastro.getNome());
     usuario.setUsername(cadastro.getUsername());
+    usuario.setSenha(cadastro.getSenha());
     LOGGER.debug("Novo usário criado: {}", usuario);
     return usuario;
   }
 
   @Override
   public void deletar(long id) {
-    System.out.println("Deletando usuário " + id);
+    LOGGER.debug("Deletando usuário ID: {}", id);
+    Usuario usuario = usuarioRepository.comId(id);
+    usuarioRepository.remover(usuario);
+    LOGGER.debug("Deletado ususário ID: {}", id);
   }
 
 }

@@ -2,6 +2,7 @@ package br.com.pcsist.wta.usuario.api;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -13,11 +14,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Usuario {
 
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
   private String nome;
   private String username;
   private String email;
+  private String senha;
 
   public long getId() {
     return id;
@@ -49,6 +51,14 @@ public class Usuario {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public String getSenha() {
+    return senha;
+  }
+
+  public void setSenha(String senha) {
+    this.senha = senha;
   }
 
   @Override

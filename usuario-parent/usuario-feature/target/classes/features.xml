@@ -17,7 +17,7 @@
   </feature>
 
   <feature name="usuario-repository" version="0.0.1-SNAPSHOT">
-    <feature>pax-jdbc-h2</feature>
+    <feature>pax-jdbc-mysql</feature>
     <feature>pax-jdbc-config</feature>
     <feature>pax-jdbc-pool-dbcp2</feature>
     <feature>jndi</feature>
