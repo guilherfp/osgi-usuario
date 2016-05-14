@@ -1,8 +1,10 @@
 package br.com.pcsist.wta.usuario.api;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -10,14 +12,19 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @XmlRootElement
+@Table(name = "usuario")
 public class Usuario {
 
   @Id
   @GeneratedValue
   private long id;
+  @Column(name = "nome", nullable = false)
   private String nome;
+  @Column(name = "username", nullable = false)
   private String username;
+  @Column(name = "email", nullable = false)
   private String email;
+  @Column(name = "senha", nullable = false)
   private String senha;
 
   public long getId() {

@@ -41,6 +41,7 @@ public class UsuarioRepositoryImplTest {
     usuario.setNome("Guilherme Pacheco");
     usuario.setEmail("guilherme.pacheco@pcinformatica.com.br");
     usuario.setUsername("guilherme.pacheco");
+    usuario.setSenha("senha");
     usuarioRepository.salvar(usuario);
 
     em.getTransaction().commit();
