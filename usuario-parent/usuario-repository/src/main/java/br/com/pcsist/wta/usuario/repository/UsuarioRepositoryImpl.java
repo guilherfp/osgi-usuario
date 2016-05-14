@@ -46,4 +46,9 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
     jpa.tx(em -> em.remove(usuairo));
   }
 
+  @Override
+  public void atualizar(Usuario usuairo) {
+    jpa.tx(em -> em.merge(usuairo));
+  }
+
 }

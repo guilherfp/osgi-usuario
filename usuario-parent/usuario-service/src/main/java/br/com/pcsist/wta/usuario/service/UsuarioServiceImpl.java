@@ -19,7 +19,7 @@ public class UsuarioServiceImpl implements UsuarioService {
   private static final Logger LOGGER = LoggerFactory.getLogger(UsuarioServiceImpl.class);
 
   @Reference
-  private UsuarioRepository usuarioRepository;
+  UsuarioRepository usuarioRepository;
 
   @Override
   public Usuario cadastrar(CadastroUsuario cadastro) {

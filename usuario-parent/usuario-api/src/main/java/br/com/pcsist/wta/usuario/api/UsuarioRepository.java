@@ -15,4 +15,6 @@ public interface UsuarioRepository {
 
   void remover(Usuario usuario);
 
+  void atualizar(Usuario usuairo);
+
 }
