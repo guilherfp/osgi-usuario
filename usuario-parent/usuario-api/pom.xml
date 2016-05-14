@@ -6,7 +6,7 @@
   <parent>
     <groupId>br.com.pcsist.wta.usuario</groupId>
     <artifactId>usuario-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
   </parent>
 
   <artifactId>usuario-api</artifactId>
