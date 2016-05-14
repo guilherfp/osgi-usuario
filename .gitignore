@@ -20,3 +20,4 @@ usuario
 WEB-INF
 /usuario-parent/usuario-ui/src/main/resources/WEB-INF
 /usuario-parent/usuario-ui/src/main/resources/usuario
+/usuario-parent/usuario-features/target
