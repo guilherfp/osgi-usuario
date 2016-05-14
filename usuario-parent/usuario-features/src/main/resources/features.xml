@@ -28,6 +28,7 @@
     <feature>transaction</feature>
     <feature>jpa</feature>
     <feature version="[5,6)">hibernate-orm</feature>
+    <feature>jdbc</feature>
     <feature>pax-jdbc-mysql</feature>
     <feature>pax-jdbc-config</feature>
     <feature>pax-jdbc-pool-dbcp2</feature>
@@ -47,6 +48,8 @@
   </feature>
 
   <feature name="usuario-rest" version="${pom.version}">
+    <feature>cxf-features-logging</feature>
+    <feature>cxf-commands</feature>
     <feature>cxf-dosgi-discovery-distributed</feature>
     <feature>usuario-service</feature>
     <bundle>mvn:${groupId}/usuario-rest/${pom.version}</bundle>

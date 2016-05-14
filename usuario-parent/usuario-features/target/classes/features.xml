@@ -47,6 +47,8 @@
   </feature>
 
   <feature name="usuario-rest" version="0.0.1-SNAPSHOT">
+    <feature>cxf-features-logging</feature>
+    <feature>cxf-commands</feature>
     <feature>cxf-dosgi-discovery-distributed</feature>
     <feature>usuario-service</feature>
     <bundle>mvn:br.com.pcsist.wta.usuario/usuario-rest/0.0.1-SNAPSHOT</bundle>
