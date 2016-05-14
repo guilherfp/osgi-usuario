@@ -12,7 +12,7 @@
   </feature>
 
   <feature name="usuario-api" version="0.0.1-SNAPSHOT">
-    <feature>src</feature>
+    <feature>scr</feature>
     <bundle>mvn:br.com.pcsist.wta.usuario/usuario-api/0.0.1-SNAPSHOT</bundle>
   </feature>
 
@@ -32,6 +32,7 @@
     <feature>cxf-features-logging</feature>
     <feature>cxf-jaxrs</feature>
     <feature>cxf-commands</feature>
+    <feature>cxf-dosgi-discovery-distributed</feature>
     <feature>usuario-repository</feature>
     <bundle>mvn:br.com.pcsist.wta.usuario/usuario-service/0.0.1-SNAPSHOT</bundle>
   </feature>
@@ -43,7 +44,7 @@
 
   <feature name="usuario-ui" version="0.0.1-SNAPSHOT">
     <feature>war</feature>
-    <feature>usuairo-service</feature>
+    <feature>usuario-service</feature>
     <bundle>mvn:br.com.pcsist.wta.usuario/usuario-ui/0.0.1-SNAPSHOT</bundle>
   </feature>
 
