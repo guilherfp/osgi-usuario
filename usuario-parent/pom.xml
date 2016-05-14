@@ -166,22 +166,10 @@
           <groupId>org.apache.aries.blueprint</groupId>
           <artifactId>blueprint-maven-plugin</artifactId>
           <version>1.4.0</version>
-          <configuration>
-            <scanPaths>
-              <scanPath>${scanPath}</scanPath>
-            </scanPaths>
-          </configuration>
-          <executions>
-            <execution>
-              <goals>
-                <goal>blueprint-generate</goal>
-              </goals>
-              <phase>process-classes</phase>
-            </execution>
-          </executions>
         </plugin>
       </plugins>
     </pluginManagement>
+
     <plugins>
       <plugin>
         <groupId>org.apache.felix</groupId>
@@ -201,6 +189,23 @@
           <source>${java.version}</source>
           <target>${java.version}</target>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.aries.blueprint</groupId>
+        <artifactId>blueprint-maven-plugin</artifactId>
+        <configuration>
+          <scanPaths>
+            <scanPath>${scanPath}</scanPath>
+          </scanPaths>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>blueprint-generate</goal>
+            </goals>
+            <phase>process-classes</phase>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

@@ -48,8 +48,8 @@
   </feature>
 
   <feature name="usuario-rest" version="${pom.version}">
-    <feature>cxf-features-logging</feature>
     <feature>cxf-commands</feature>
+    <feature>cxf-features-logging</feature>
     <feature>cxf-dosgi-discovery-distributed</feature>
     <feature>usuario-service</feature>
     <bundle>mvn:${groupId}/usuario-rest/${pom.version}</bundle>
