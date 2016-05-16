@@ -3,7 +3,6 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.3.0 http://karaf.apache.org/xmlns/features/v1.3.0">
 
-  <repository>mvn:org.hibernate/hibernate-osgi/5.1.0.Final/xml/karaf</repository>
   <repository>mvn:org.ops4j.pax.jdbc/pax-jdbc-features/0.8.0/xml/features</repository>
   <repository>mvn:org.apache.cxf.dosgi/cxf-dosgi/1.7.0/xml/features</repository>
 
@@ -17,7 +16,7 @@
   <feature name="usuario-api" version="0.0.1">
     <feature>scr</feature>
     <feature>jndi</feature>
-    <feature version="[2.3,3)">jpa</feature>
+    <feature>jpa</feature>
     <feature version="[4.3,5)">hibernate</feature>
     <bundle>mvn:br.com.pcsist.wta.usuario/usuario-api/0.0.1</bundle>
   </feature>
@@ -25,8 +24,6 @@
   <feature name="usuario-repository" version="0.0.1">
     <feature>usuario-api</feature>
     <feature>transaction</feature>
-    <feature>jpa</feature>
-    <feature version="[5,6)">hibernate-orm</feature>
     <feature>jdbc</feature>
     <feature>pax-jdbc-mysql</feature>
     <feature>pax-jdbc-config</feature>
