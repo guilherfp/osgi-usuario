@@ -17,6 +17,8 @@
   <modules>
     <module>vendas-api</module>
     <module>vendas-service</module>
+    <module>vendas-rest</module>
+    <module>vendas-ui</module>
   </modules>
 
   <properties>

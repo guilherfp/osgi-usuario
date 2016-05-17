@@ -18,6 +18,7 @@
     <osgi.version>6.0.0</osgi.version>
     <slf4j.version>1.7.21</slf4j.version>
     <cxf.version>3.1.6</cxf.version>
+    <core.version>0.0.1-SNAPSHOT</core.version>
   </properties>
 
   <dependencies>
@@ -116,6 +117,17 @@
         <version>${slf4j.version}</version>
         <scope>test</scope>
       </dependency>
+      <dependency>
+        <groupId>br.com.pcsist.wta.core</groupId>
+        <artifactId>core-ui</artifactId>
+        <version>${core.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>br.com.pcsist.wta.core</groupId>
+        <artifactId>core-ui-bom</artifactId>
+        <version>${core.version}</version>
+        <type>pom</type>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -195,5 +207,7 @@
 
   <modules>
     <module>core-api</module>
+    <module>core-ui</module>
+    <module>core-ui-bom</module>
   </modules>
 </project>
