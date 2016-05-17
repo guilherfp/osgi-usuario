@@ -2,12 +2,12 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
-  <persistence-unit name="usuarios" transaction-type="JTA">
+  <persistence-unit name="vendas" transaction-type="JTA">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
     <jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=wta)</jta-data-source>
 
-    <class>br.com.pcsist.wta.usuario.api.Usuario</class>
+    <class>br.com.pcsist.wta.vendas.Venda</class>
 
     <properties>
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />

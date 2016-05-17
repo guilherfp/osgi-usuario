@@ -6,13 +6,38 @@
     <groupId>br.com.pcsist.wta.core</groupId>
     <artifactId>core-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../core-parent/pom.xml</relativePath>
   </parent>
 
   <groupId>br.com.pcsist.wta.vendas</groupId>
   <artifactId>vendas-parent</artifactId>
+  <version>0.0.2-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <modules>
     <module>vendas-api</module>
+    <module>vendas-service</module>
   </modules>
+
+  <properties>
+    <scanPath>br.com.pcsist.wta.vendas</scanPath>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>br.com.pcsist.wta.usuario</groupId>
+        <artifactId>usuario-api</artifactId>
+        <version>0.0.1</version>
+        <type>bundle</type>
+      </dependency>
+      <dependency>
+        <groupId>br.com.pcsist.wta.vendas</groupId>
+        <artifactId>vendas-api</artifactId>
+        <version>${project.version}</version>
+        <type>bundle</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
 </project>

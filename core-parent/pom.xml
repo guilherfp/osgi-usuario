@@ -193,4 +193,7 @@
     </plugins>
   </build>
 
+  <modules>
+    <module>core-api</module>
+  </modules>
 </project>
